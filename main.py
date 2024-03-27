@@ -21,15 +21,12 @@ def to_hms(seconds: int) -> list:
     [1, 59, 59]
     """
     # Type your code below
-    pass
+    if type(seconds) == int and seconds>0:
+        minutes, seconds = divmod(seconds, 60)
+        hours, minutes = divmod(minutes, 60)
 
-def to_gms(seconds):
-  """A function that takes in an integer argument (seconds) containing the number of seconds"""
-  
-  seconds = input('Enter the number of seconds (integer): ')
-  seconds = int(seconds)
+        return [hours, minutes, seconds]
+    else:
+        print('Unsupported input type.')
 
-  minutes, seconds = divmod(seconds, 60)
-  hours, minutes = divmod(minutes, 60)
-
-  print("The duration is", hours, "hours,", minutes, "minutes, and", seconds, "seconds.")
+print(to_hms(10))
